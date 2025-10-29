@@ -369,29 +369,6 @@
                 }, 5000);
             }, 700);
         }
-
-        // Script pour remplacer le placeholder du logo par votre image fournie
-        window.addEventListener('DOMContentLoaded', (event) => {
-            const logoImg = document.querySelector('nav .h-10.w-auto');
-            const heroLogoImg = document.querySelector('header .max-w-md');
-
-            // On utilise l'URL générée par le modèle pour votre logo
-            const actualLogoUrl = '/images/Dckay_logo.png'; 
-
-            if (logoImg) {
-                logoImg.src = actualLogoUrl;
-                logoImg.classList.remove('bg-gray-200'); // Enlève le background du placeholder
-                logoImg.classList.remove('p-2'); // Enlève le padding du placeholder
-            }
-            if (heroLogoImg) {
-                heroLogoImg.src = actualLogoUrl;
-                // Ajuster les styles si nécessaire pour l'image du hero, enlever les placeholders
-                heroLogoImg.classList.remove('p-6', 'bg-white', 'border-4', 'border-[#b8860b]', 'rounded-3xl');
-                heroLogoImg.style.width = '300px'; /* Taille ajustée pour le logo */
-                heroLogoImg.style.height = 'auto';
-                heroLogoImg.style.filter = 'drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 4px rgb(0 0 0 / 0.08))'; /* Remplace le shadow-2xl avec drop-shadow */
-            }
-        });
     </script>
 </body>
 </html>
