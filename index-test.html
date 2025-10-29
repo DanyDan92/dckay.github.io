@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DCK Agency - Votre Partenaire Contenu & Création</title>
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* Polices */
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Playfair+Display:wght@700&display=swap');
+
+    body{
+      font-family:'Montserrat',sans-serif;
+      background-color:#fcf8f5;
+      color:#2c2c2c;
+    }
+    h1,h2,h3{ font-family:'Playfair Display',serif; }
+    .logo-text{ font-family:'Playfair Display',serif; font-weight:700; }
+
+    /* Titres de section */
+    .section-title{
+      position:relative; display:inline-block; padding-bottom:.5rem;
+      font-size:2.5rem; font-weight:700; color:#4a2d1d;
+    }
+    .section-title::after{
+      content:''; position:absolute; bottom:0; left:0; width:70px; height:5px;
+      background-color:#b8860b; border-radius:9999px;
+    }
+
+    /* Cartes services */
+    .card-service{ transition:transform .3s ease, box-shadow .3s ease; cursor:pointer; }
+    .card-service:hover{
+      transform:translateY(-8px);
+      box-shadow:0 15px 25px -5px rgba(0,0,0,.15), 0 6px 10px -3px rgba(0,0,0,.08);
+    }
+
+    /* --- NAV premium --- */
+    /* Soulignement animé pour les liens desktop */
+    .nav-link{ position:relative; }
+    .nav-underline{
+      position:absolute; left:0; bottom:-6px; height:2px; width:0;
+      background:#b8860b; border-radius:9999px; transition:width .25s ease;
+    }
+    .nav-link:hover .nav-underline{ width:100%; }
+
+    /* État actif (appliqué en JS) */
+    .nav-link.active{ color:#4a2d1d; }
+    .nav-link.active .nav-underline{ width:100%; }
+
+    /* Mobile styles (menu) */
+    .mobile-link{
+      display:block; padding:.625rem 0; font-weight:600; color:#1f2937; border-radius:.5rem;
+    }
+    .mobile-link:focus-visible{ outline:2px solid #b8860b; outline-offset:2px; }
+    .mobile-cta{
+      display:block; margin-top:.25rem; padding:.65rem 1rem; font-weight:700;
+      color:#fff; background:#b8860b; border-radius:9999px;
+    }
+    .mobile-cta:hover{ background:#a5780a; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV premium -->
+  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/70 border-b border-neutral-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex h-20 items-center justify-between">
+        <!-- Logo + Brand -->
+        <a href="#" class="flex items-center gap-3 group">
+          <img src="images/Dckay_logo.png" alt="Logo DCK Agency" class="h-10 w-auto">
+          <span class="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#4a2d1d] logo-text hidden sm:block">
+            DCK Agency
+          </span>
+        </a>
+
+        <!-- Menu Desktop -->
+        <div class="hidden md:flex items-center gap-10">
+          <ul class="flex items-center gap-8">
+            <li>
+              <a href="#expertise" class="nav-link relative font-semibold text-gray-800 hover:text-[#4a2d1d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b8860b] focus-visible:rounded-md">
+                Nos Forces
+                <span class="nav-underline"></span>
+              </a>
+            </li>
+            <li>
+              <a href="#services" class="nav-link relative font-semibold text-gray-800 hover:text-[#4a2d1d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b8860b] focus-visible:rounded-md">
+                Nos Solutions
+                <span class="nav-underline"></span>
+              </a>
+            </li>
+            <li>
+              <a href="#portfolio" class="nav-link relative font-semibold text-gray-800 hover:text-[#4a2d1d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b8860b] focus-visible:rounded-md">
+                Nos Références
+                <span class="nav-underline"></span>
+              </a>
+            </li>
+          </ul>
+
+          <!-- Call to action -->
+          <a href="#contact" class="px-5 py-2.5 bg-[#b8860b] text-white rounded-full font-semibold shadow-md hover:bg-[#a5780a] transition">
+            Contact
+          </a>
+
+          <!-- Lang switch -->
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1 rounded-full bg-[#b8860b] text-white font-semibold text-sm">FR</span>
+            <a href="en/" class="px-3 py-1 rounded-full border border-[#b8860b] text-[#b8860b] hover:bg-[#fff8ea] text-sm">EN</a>
+          </div>
+        </div>
+
+        <!-- Bouton Mobile -->
+        <button id="mobile-menu-button" class="md:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:text-[#b8860b] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b8860b]" aria-label="Ouvrir le menu">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menu Mobile -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-neutral-200 bg-white shadow-sm">
+      <div class="px-4 py-3 flex flex-col gap-2">
+        <a href="#expertise" class="mobile-link">Nos Forces</a>
+        <a href="#services" class="mobile-link">Nos Solutions</a>
+        <a href="#portfolio" class="mobile-link">Nos Références</a>
+        <a href="#contact" class="mobile-cta">Contact</a>
+
+        <!-- Lang switch mobile -->
+        <div class="flex items-center gap-2 pt-2 border-t border-neutral-100">
+          <span class="px-3 py-1 rounded-full bg-[#b8860b] text-white font-semibold text-sm">FR</span>
+          <a href="en/" class="px-3 py-1 rounded-full border border-[#b8860b] text-[#b8860b] text-sm">EN</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="pt-20 pb-24 bg-gradient-to-br from-[#fcf8f5] to-[#f0e8e0] border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-16">
+      <!-- Texte -->
+      <div class="md:w-1/2 text-center md:text-left">
+        <p class="text-xl text-[#b8860b] font-semibold mb-3">DCK Agency</p>
+        <h1 class="text-6xl md:text-7xl font-extrabold leading-tight text-[#4a2d1d] mb-6">
+          Votre message, <br><span class="text-[#b8860b]">une force créative.</span>
+        </h1>
+        <p class="text-xl text-gray-700 mb-10 max-w-lg md:max-w-none mx-auto">
+          De l'idée à la page, du concept à l'écran, nous transformons votre vision en contenus captivants et performants. Stratégie, rédaction, SEO, graphisme : une agence, mille solutions.
+        </p>
+        <div class="flex flex-col sm:flex-row space-y-5 sm:space-y-0 sm:space-x-6 justify-center md:justify-start">
+          <a href="#services" class="w-full sm:w-auto px-10 py-4 text-xl font-bold text-white bg-[#b8860b] rounded-full hover:bg-[#a5780a] transition duration-300 ease-in-out text-center shadow-lg">
+            Découvrir nos solutions
+          </a>
+          <a href="#contact" class="w-full sm:w-auto px-10 py-4 text-xl font-bold text-[#b8860b] bg-white border-2 border-[#b8860b] rounded-full hover:bg-[#fff9f5] transition duration-300 ease-in-out text-center shadow-lg">
+            Parlons de votre projet
+          </a>
+        </div>
+      </div>
+
+      <!-- Visuel -->
+      <div class="md:w-1/2 mt-12 md:mt-0 flex justify-center relative">
+        <img src="images/Dckay_logo.png"
+             alt="Logo DCK Agency stylisé"
+             class="w-full max-w-md h-auto object-contain rounded-3xl p-6 bg-white shadow-2xl border-4 border-[#b8860b] transform rotate-[-3deg] hover:rotate-0 transition duration-500 ease-in-out">
+        <p class="absolute bottom-8 right-8 text-white bg-black/60 px-4 py-2 rounded-lg text-lg font-semibold transform rotate-[-3deg]">L'art du contenu</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- EXPERTISE -->
+  <section id="expertise" class="py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="section-title mx-auto">Nos Forces pour Votre Succès</h2>
+      <p class="text-xl text-gray-600 mt-5 mb-16 max-w-4xl mx-auto leading-relaxed">
+        Plus de 15 ans d'expérience en journalisme et communication, désormais au service de votre marque. Nous maîtrisons chaque étape de la création de contenu percutant.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <!-- 1 -->
+        <div class="card-service bg-white p-8 rounded-2xl shadow-xl border-t-8 border-[#b8860b]">
+          <svg class="w-14 h-14 text-[#b8860b] mb-5 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+          </svg>
+          <h3 class="text-2xl font-bold text-[#4a2d1d] mb-3">Direction Éditoriale</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Définissez votre voix ! Nous concevons votre ligne éditoriale, orchestrons la production et assurons la qualité finale de tous vos contenus, print et web.
+          </p>
+        </div>
+        <!-- 2 -->
+        <div class="card-service bg-white p-8 rounded-2xl shadow-xl border-t-8 border-[#b8860b]">
+          <svg class="w-14 h-14 text-[#b8860b] mb-5 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L15.232 5.232z"/>
+          </svg>
+          <h3 class="text-2xl font-bold text-[#4a2d1d] mb-3">Rédaction Engageante</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Des articles de presse incisifs aux contenus web dynamiques, nous rédigeons avec passion pour informer, captiver et engager votre audience.
+          </p>
+        </div>
+        <!-- 3 -->
+        <div class="card-service bg-white p-8 rounded-2xl shadow-xl border-t-8 border-[#b8860b]">
+          <svg class="w-14 h-14 text-[#b8860b] mb-5 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
+          </svg>
+          <h3 class="text-2xl font-bold text-[#4a2d1d] mb-3">SEO Performant</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Faites-vous trouver ! Nous optimisons vos textes pour les moteurs de recherche, boostant votre visibilité sans jamais sacrifier la qualité et la pertinence.
+          </p>
+        </div>
+        <!-- 4 -->
+        <div class="card-service bg-white p-8 rounded-2xl shadow-xl border-t-8 border-[#b8860b]">
+          <svg class="w-14 h-14 text-[#b8860b] mb-5 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2z"/>
+          </svg>
+          <h3 class="text-2xl font-bold text-[#4a2d1d] mb-3">Design & Maquettes</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Un contenu sublimé par le visuel. Nous créons des maquettes percutantes qui captent l'œil et renforcent l'impact de vos messages, pour print et digital.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="py-24 bg-[#f0e8e0]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="section-title mx-auto md:mx-0">Nos Solutions pour Votre Contenu</h2>
+      <p class="text-xl text-gray-700 mt-5 mb-16 max-w-4xl leading-relaxed">
+        Une approche sur-mesure pour chaque projet. Découvrez comment nous pouvons faire la différence.
+      </p>
+
+      <div class="space-y-16">
+        <!-- 1 -->
+        <div class="bg-white p-8 md:p-12 rounded-3xl shadow-2xl flex flex-col md:flex-row items-start border-l-8 border-[#b8860b]">
+          <div class="md:w-1/3 mb-6 md:mb-0">
+            <h3 class="text-3xl font-bold text-[#4a2d1d]">1. Stratégie & Pilotage</h3>
+            <p class="text-lg text-[#b8860b] mt-2">Votre vision, notre feuille de route.</p>
+          </div>
+          <div class="md:w-2/3 md:pl-12">
+            <ul class="list-disc list-inside space-y-3 text-gray-700 text-lg">
+              <li><strong>Ligne Éditoriale :</strong> Définition de votre positionnement, de votre ton et des formats idéaux.</li>
+              <li><strong>Gestion de Projet :</strong> Coordination des équipes, planning éditorial, suivi de production de A à Z.</li>
+              <li><strong>Contrôle Qualité :</strong> Relecture experte, réécriture et validation finale des maquettes et publications.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="bg-white p-8 md:p-12 rounded-3xl shadow-2xl flex flex-col md:flex-row items-start border-l-8 border-[#b8860b]">
+          <div class="md:w-1/3 mb-6 md:mb-0">
+            <h3 class="text-3xl font-bold text-[#4a2d1d]">2. Rédaction Impactante</h3>
+            <p class="text-lg text-[#b8860b] mt-2">Quand les mots prennent vie.</p>
+          </div>
+          <div class="md:w-2/3 md:pl-12">
+            <ul class="list-disc list-inside space-y-3 text-gray-700 text-lg">
+              <li><strong>Presse & Reportage :</strong> Articles, interviews, enquêtes... l'essence du journalisme.</li>
+              <li><strong>Web & Digital :</strong> Blogs, newsletters, e-books, fiches produits qui transforment.</li>
+              <li><strong>Storytelling :</strong> Des récits captivants pour créer une connexion émotionnelle forte.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="bg-white p-8 md:p-12 rounded-3xl shadow-2xl flex flex-col md:flex-row items-start border-l-8 border-[#b8860b]">
+          <div class="md:w-1/3 mb-6 md:mb-0">
+            <h3 class="text-3xl font-bold text-[#4a2d1d]">3. Visibilité Digitale</h3>
+            <p class="text-lg text-[#b8860b] mt-2">Atteignez votre audience.</p>
+          </div>
+          <div class="md:w-2/3 md:pl-12">
+            <ul class="list-disc list-inside space-y-3 text-gray-700 text-lg">
+              <li><strong>Stratégie SEO :</strong> Audit, recherche de mots-clés, analyse concurrentielle.</li>
+              <li><strong>Contenus Optimisés :</strong> Rédaction d'articles et pages web pensés pour les moteurs de recherche.</li>
+              <li><strong>Analyse de Performance :</strong> Suivi et ajustements pour une visibilité durable.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="bg-white p-8 md:p-12 rounded-3xl shadow-2xl flex flex-col md:flex-row items-start border-l-8 border-[#b8860b]">
+          <div class="md:w-1/3 mb-6 md:mb-0">
+            <h3 class="text-3xl font-bold text-[#4a2d1d]">4. Design & Maquettage</h3>
+            <p class="text-lg text-[#b8860b] mt-2">L'impact visuel au service du message.</p>
+          </div>
+          <div class="md:w-2/3 md:pl-12">
+            <ul class="list-disc list-inside space-y-3 text-gray-700 text-lg">
+              <li><strong>Maquettes Print :</strong> Magazines, brochures, livres... un design qui raconte votre histoire.</li>
+              <li><strong>Design Digital :</strong> Mises en page web, infographies, visuels pour réseaux sociaux.</li>
+              <li><strong>Direction Artistique :</strong> Harmonie graphique entre vos textes et vos supports.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio" class="py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="section-title mx-auto">Nos Références Parlent pour Nous</h2>
+      <p class="text-xl text-gray-600 mt-5 mb-16 max-w-4xl mx-auto leading-relaxed">
+        Des collaborations prestigieuses et des succès éditoriaux en presse nationale et magazines spécialisés.
+      </p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8">
+        <div class="bg-white p-4 rounded-xl shadow-lg border border-gray-100 transform hover:scale-105 transition duration-300">
+          <img src="images/Couv_Confidentiel.jpg"
+               onerror="this.src='https://placehold.co/150x200/F0E8E0/4a2d1d?text=Magazine+Presse'"
+               alt="Couvertures des magazines Confidentiel." class="w-full h-auto object-cover rounded-md mb-2">
+          <p class="text-sm font-semibold text-[#4a2d1d]">Confidentiel</p>
+        </div>
+        <div class="bg-white p-4 rounded-xl shadow-lg border border-gray-100 transform hover:scale-105 transition duration-300">
+          <img src="images/Couv_MagicMaman.png"
+               onerror="this.src='https://placehold.co/150x200/F0E8E0/4a2d1d?text=Magazine+Presse'"
+               alt="Couverture du magazine Magic Maman." class="w-full h-auto object-cover rounded-md mb-2">
+          <p class="text-sm font-semibold text-[#4a2d1d]">Magic Maman</p>
+        </div>
+        <div class="bg-white p-4 rounded-xl shadow-lg border border-gray-100 transform hover:scale-105 transition duration-300">
+          <img src="images/Couv_IconLife.jpg"
+               onerror="this.src='https://placehold.co/150x200/F0E8E0/4a2d1d?text=Magazine+Presse'"
+               alt="Couverture du magazine Icon Life." class="w-full h-auto object-cover rounded-md mb-2">
+          <p class="text-sm font-semibold text-[#4a2d1d]">Icon Life</p>
+        </div>
+        <div class="bg-white p-4 rounded-xl shadow-lg border border-gray-100 transform hover:scale-105 transition duration-300">
+          <img src="images/Couv_GlamMag.jpg"
+               onerror="this.src='https://placehold.co/150x200/F0E8E0/4a2d1d?text=Magazine+Presse'"
+               alt="Couverture du magazine Glam Mag." class="w-full h-auto object-cover rounded-md mb-2">
+          <p class="text-sm font-semibold text-[#4a2d1d]">Bio Mag</p>
+        </div>
+        <div class="bg-white p-4 rounded-xl shadow-lg border border-gray-100 transform hover:scale-105 transition duration-300">
+          <img src="images/Couv_Oops.jpg"
+               onerror="this.src='https://placehold.co/150x200/F0E8E0/4a2d1d?text=Magazine+Presse'"
+               alt="Couvertures du magazine Oops" class="w-full h-auto object-cover rounded-md mb-2">
+          <p class="text-sm font-semibold text-[#4a2d1d]">Oops</p>
+        </div>
+        <div class="bg-white p-4 rounded-xl shadow-lg border border-gray-100 transform hover:scale-105 transition duration-300">
+          <img src="images/Couv_LND.png"
+               onerror="this.src='https://placehold.co/150x200/F0E8E0/4a2d1d?text=Magazine+Presse'"
+               alt="Couvertures du magazine Le Nouveau Détective." class="w-full h-auto object-cover rounded-md mb-2">
+          <p class="text-sm font-semibold text-[#4a2d1d]">Le Nouveau Détective</p>
+        </div>
+      </div>
+
+      <p class="text-lg text-gray-500 mt-14">
+        Et bien d'autres : Bio Mag, Public, Star Glam, Aujourd'hui Femme, Notre Vie, Paris Hebdo, Gossip, Vérité...
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-24 bg-[#e0d6cd] bg-opacity-70">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-5xl font-extrabold text-[#4a2d1d] mb-6 leading-tight">
+        Prêt à transformer <br><span class="text-[#b8860b]">votre communication ?</span>
+      </h2>
+      <p class="text-xl text-gray-700 mb-12 max-w-2xl mx-auto leading-relaxed">
+        Contactez DCK Agency dès aujourd'hui pour donner une nouvelle dimension à vos contenus et projets créatifs.
+      </p>
+
+      <div class="bg-white p-10 rounded-3xl shadow-2xl border-t-8 border-[#b8860b] max-w-xl mx-auto">
+        <form id="contact-form" onsubmit="handleFormSubmit(event)">
+          <div class="mb-5">
+            <input type="text" id="name" placeholder="Votre nom complet ou nom d'entreprise" required
+                   class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-[#b8860b] focus:border-[#b8860b] transition duration-150 text-lg">
+          </div>
+          <div class="mb-5">
+            <input type="email" id="email" placeholder="Votre adresse email professionnelle" required
+                   class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-[#b8860b] focus:border-[#b8860b] transition duration-150 text-lg">
+          </div>
+          <div class="mb-7">
+            <textarea id="message" rows="5" placeholder="Décrivez votre projet et vos besoins..." required
+                      class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-[#b8860b] focus:border-[#b8860b] transition duration-150 text-lg"></textarea>
+          </div>
+          <button type="submit"
+                  class="w-full px-8 py-4 text-xl font-bold text-white bg-[#4a2d1d] rounded-full hover:bg-[#332015] transition duration-300 ease-in-out shadow-lg transform active:scale-95">
+            Envoyer ma demande
+          </button>
+        </form>
+        <div id="form-message" class="mt-6 text-green-700 font-semibold text-lg hidden"></div>
+      </div>
+
+      <div class="mt-16 text-center">
+        <p class="text-2xl font-bold text-[#4a2d1d]">Contact Direct :</p>
+        <a href="mailto:contact@dckagency.com" class="text-2xl text-[#b8860b] hover:underline block mt-4">
+          <span class="font-mono">contact@dckagency.com</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#4a2d1d] text-white py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+      <p>&copy; 2019 DCK Agency. Tous droits réservés.</p>
+      <p class="mt-2 text-gray-400">Stratégie, Création, Impact.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Menu mobile
+    const mobileBtn = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileBtn?.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    document.querySelectorAll('#mobile-menu a').forEach(link=>{
+      link.addEventListener('click', ()=> mobileMenu.classList.add('hidden'));
+    });
+
+    // Ombre légère au scroll sur la nav
+    const nav = document.querySelector('nav.sticky');
+    const onScroll = () => {
+      if (window.scrollY > 4) nav.classList.add('shadow-md');
+      else nav.classList.remove('shadow-md');
+    };
+    onScroll(); window.addEventListener('scroll', onScroll);
+
+    // Lien actif en fonction de la section visible
+    const sections = ['expertise','services','portfolio','contact']
+      .map(id => document.getElementById(id))
+      .filter(Boolean);
+    const links = Array.from(document.querySelectorAll('.nav-link'));
+
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        const id = entry.target.id;
+        const link = links.find(a => a.getAttribute('href') === '#'+id);
+        if (!link) return;
+        if (entry.isIntersecting){
+          links.forEach(a=>a.classList.remove('active'));
+          link.classList.add('active');
+        }
+      });
+    }, { rootMargin:'-40% 0px -50% 0px', threshold:0.1 });
+
+    sections.forEach(sec => observer.observe(sec));
+
+    // Formulaire (simulation)
+    function handleFormSubmit(event){
+      event.preventDefault();
+      const form = document.getElementById('contact-form');
+      const messageBox = document.getElementById('form-message');
+      setTimeout(()=>{
+        form.reset();
+        messageBox.textContent = "Merci pour votre message ! Un expert DCK vous contacte très vite.";
+        messageBox.classList.remove('hidden');
+        messageBox.classList.add('text-green-700');
+        setTimeout(()=> messageBox.classList.add('hidden'), 5000);
+      },700);
+    }
+  </script>
+</body>
+</html>
