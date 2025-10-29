@@ -23,16 +23,17 @@
   <link rel="alternate" hreflang="en" href="https://danydan92.github.io/dckay.github.io/en/">
   <link rel="alternate" hreflang="x-default" href="https://danydan92.github.io/dckay.github.io/">
 
-  <!-- Fonts & base styles (same as FR) -->
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Playfair+Display:wght@700&display=swap');
+
+    :root{ --brand-gold:#b8860b; --brand-brown:#4a2d1d; --scroll-hue:30; }
 
     body{ font-family:'Montserrat',sans-serif; background:#fcf8f5; color:#2c2c2c; }
     h1,h2,h3{ font-family:'Playfair Display',serif; }
     .logo-text{ font-family:'Playfair Display',serif; font-weight:700; }
 
-    .section-title{ position:relative; display:inline-block; padding-bottom:.5rem; font-size:2.5rem; font-weight:700; color:#4a2d1d; }
-    .section-title::after{ content:''; position:absolute; bottom:0; left:0; width:70px; height:5px; background:#b8860b; border-radius:9999px; }
+    .section-title{ position:relative; display:inline-block; padding-bottom:.5rem; font-size:2.5rem; font-weight:700; color:var(--brand-brown); }
+    .section-title::after{ content:''; position:absolute; bottom:0; left:0; width:70px; height:5px; background:var(--brand-gold); border-radius:9999px; }
 
     .card-service{ transition:transform .3s ease, box-shadow .3s ease; cursor:pointer; }
     .card-service:hover{ transform:translateY(-8px); box-shadow:0 15px 25px -5px rgba(0,0,0,.15), 0 6px 10px -3px rgba(0,0,0,.08); }
@@ -40,26 +41,55 @@
     .reveal{ opacity:0; transform:translateY(24px); transition:opacity .6s ease, transform .6s ease; }
     .reveal.in{ opacity:1; transform:none; }
 
-    .nav-link{ position:relative; }
-    .nav-underline{ position:absolute; left:0; bottom:-6px; height:2px; width:0; background:#b8860b; border-radius:9999px; transition:width .25s ease; }
+    /* Nav + Option A (gold active + fade) */
+    .nav-link{ position:relative; transition:color .25s ease, opacity .25s ease; }
+    .nav-underline{ position:absolute; left:0; bottom:-6px; height:2px; width:0; background:var(--brand-gold); border-radius:9999px; transition:width .25s ease; }
     .nav-link:hover .nav-underline{ width:100%; }
-    .nav-link.active{ color:#4a2d1d; }
+    .nav-link.active{ color:var(--brand-gold); opacity:1; }
     .nav-link.active .nav-underline{ width:100%; }
+    .nav-links.has-active .nav-link{ opacity:.6; }
+    .nav-links.has-active .nav-link.active{ opacity:1; }
 
     .mobile-link{ display:block; padding:.625rem 0; font-weight:600; color:#1f2937; border-radius:.5rem; }
-    .mobile-cta{ display:block; margin-top:.25rem; padding:.65rem 1rem; font-weight:700; color:#fff; background:#b8860b; border-radius:9999px; }
+    .mobile-cta{ display:block; margin-top:.25rem; padding:.65rem 1rem; font-weight:700; color:#fff; background:var(--brand-gold); border-radius:9999px; }
     .mobile-cta:hover{ background:#a5780a; }
 
     .card-tilt{ transform-style:preserve-3d; perspective:800px; }
     .card-tilt:hover{ transform:translateY(-6px) rotateX(2deg) rotateY(-2deg); }
 
-    .dark body{ background:#0b0b0b; color:#e6e6e6; }
-    .dark .section-title{ color:#f3f3f3 }
-    .dark .section-title::after{ background:#d6a444 }
-    .dark nav{ background:rgba(18,18,18,.8) }
-    .dark .card-service{ background:#141414; border-color:#2a2a2a }
+    .scroll-bg{
+      background:
+        radial-gradient(1200px 800px at 110% -10%, rgba(184,134,11,.08), transparent 60%),
+        linear-gradient(180deg, hsla(var(--scroll-hue),45%,98%,1) 0%, #fcf8f5 60%, #f7f2ed 100%);
+      transition: background .2s linear;
+    }
+
+    #expertise, #services, #portfolio, #contact { scroll-margin-top: 96px; }
+
+    /* Dark */
+    .dark body{ background:#0b0b0b; color:#e7e7e7; }
+    .dark nav{ background:rgba(18,18,18,.9); border-color:#262626; }
+    .dark footer{ background:#0f0f0f; }
+    .dark .section-title{ color:#f5f5f5; }
+    .dark .section-title::after{ background:#d6a444; }
+    .dark .text-gray-700{ color:#d1d5db !important; }
+    .dark .text-gray-600{ color:#cfd8e3 !important; }
+    .dark .text-gray-500{ color:#9aa4b2 !important; }
+    .dark .bg-white{ background:#121212 !important; }
+    .dark .bg-[#f0e8e0]{ background:#171717 !important; }
+    .dark .bg-[#e0d6cd]{ background:#151515 !important; }
+    .dark .border-gray-300{ border-color:#2e2e2e !important; }
+    .dark .border-gray-200{ border-color:#242424 !important; }
+    .dark .border-gray-100{ border-color:#262626 !important; }
+    .dark .border-t-8{ border-color:#2a2a2a !important; }
+    .dark .card-service{ background:#141414; }
+    .dark .shadow-2xl, .dark .shadow-xl, .dark .shadow-lg{ box-shadow:none; }
+    .dark .nav-link.active{ color:#f5f5f5; }
 
     .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;}
+    @media (prefers-reduced-motion: reduce){
+      *{ animation: none !important; transition:none !important; }
+    }
   </style>
 
   <script>
@@ -71,7 +101,9 @@
     })();
   </script>
 </head>
-<body>
+<body class="scroll-bg">
+
+  <div id="scrollbar" style="position:fixed;top:0;left:0;height:3px;width:0;z-index:60;background:linear-gradient(90deg,#b8860b,#d6a444);box-shadow:0 0 8px rgba(214,164,68,.7);"></div>
 
   <a href="#expertise" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 bg-white text-black px-3 py-2 rounded shadow">Skip to content</a>
 
@@ -81,26 +113,26 @@
       <div class="flex h-20 items-center justify-between">
         <a href="#" class="flex items-center gap-3">
           <img src="../images/Dckay_logo.png" alt="DCK Agency logo" class="h-10 w-auto" loading="lazy" decoding="async">
-          <span class="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#4a2d1d] logo-text hidden sm:block">DCK Agency</span>
+          <span class="text-2xl sm:text-3xl font-extrabold tracking-tight text-[var(--brand-brown)] logo-text hidden sm:block">DCK Agency</span>
         </a>
 
         <div class="hidden md:flex items-center gap-6 lg:gap-10">
-          <ul class="flex items-center gap-6 lg:gap-8">
-            <li><a href="#expertise" class="nav-link relative font-semibold text-gray-800 hover:text-[#4a2d1d]">Our Strengths<span class="nav-underline"></span></a></li>
-            <li><a href="#services"  class="nav-link relative font-semibold text-gray-800 hover:text-[#4a2d1d]">Our Solutions<span class="nav-underline"></span></a></li>
-            <li><a href="#portfolio" class="nav-link relative font-semibold text-gray-800 hover:text-[#4a2d1d]">References<span class="nav-underline"></span></a></li>
+          <ul class="nav-links flex items-center gap-6 lg:gap-8">
+            <li><a href="#expertise" class="nav-link relative font-semibold text-gray-800 hover:text-[var(--brand-brown)]">Our Strengths<span class="nav-underline"></span></a></li>
+            <li><a href="#services"  class="nav-link relative font-semibold text-gray-800 hover:text-[var(--brand-brown)]">Our Solutions<span class="nav-underline"></span></a></li>
+            <li><a href="#portfolio" class="nav-link relative font-semibold text-gray-800 hover:text-[var(--brand-brown)]">References<span class="nav-underline"></span></a></li>
           </ul>
 
-          <a href="#contact" class="px-5 py-2.5 bg-[#b8860b] text-white rounded-full font-semibold shadow-md transition-transform duration-300 hover:-translate-y-0.5 active:translate-y-0 hover:bg-[#a5780a]">Contact</a>
+          <a href="#contact" class="px-5 py-2.5 bg-[var(--brand-gold)] text-white rounded-full font-semibold shadow-md transition-transform duration-300 hover:-translate-y-0.5 active:translate-y-0 hover:bg-[#a5780a]">Contact</a>
 
           <div class="hidden lg:flex items-center gap-2">
-            <a href="../" class="px-3 py-1 rounded-full border border-[#b8860b] text-[#b8860b] hover:bg-[#fff8ea] text-sm">FR</a>
-            <span class="px-3 py-1 rounded-full bg-[#b8860b] text-white font-semibold text-sm">EN</span>
+            <a href="../" class="px-3 py-1 rounded-full border border-[var(--brand-gold)] text-[var(--brand-gold)] hover:bg-[#fff8ea] text-sm">FR</a>
+            <span class="px-3 py-1 rounded-full bg-[var(--brand-gold)] text-white font-semibold text-sm">EN</span>
             <button id="theme-toggle" class="rounded-full border px-3 py-1 text-sm hover:bg-neutral-50" aria-label="Toggle theme">🌙</button>
           </div>
         </div>
 
-        <button id="mobile-menu-button" class="md:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:text-[#b8860b]" aria-label="Open menu">
+        <button id="mobile-menu-button" class="md:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:text-[var(--brand-gold)]" aria-label="Open menu">
           <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
       </div>
@@ -113,8 +145,8 @@
         <a href="#portfolio" class="mobile-link">References</a>
         <a href="#contact" class="mobile-cta">Contact</a>
         <div class="flex items-center gap-2 pt-2 border-t border-neutral-100">
-          <a href="../" class="px-3 py-1 rounded-full border border-[#b8860b] text-[#b8860b] text-sm">FR</a>
-          <span class="px-3 py-1 rounded-full bg-[#b8860b] text-white font-semibold text-sm">EN</span>
+          <a href="../" class="px-3 py-1 rounded-full border border-[var(--brand-gold)] text-[var(--brand-gold)] text-sm">FR</a>
+          <span class="px-3 py-1 rounded-full bg-[var(--brand-gold)] text-white font-semibold text-sm">EN</span>
           <button id="theme-toggle-mobile" class="rounded-full border px-3 py-1 text-sm">🌙</button>
         </div>
       </div>
@@ -122,25 +154,25 @@
   </nav>
 
   <!-- HERO -->
-  <header class="pt-20 pb-24 bg-gradient-to-br from-[#fcf8f5] to-[#f0e8e0] border-b border-gray-200 reveal">
+  <header class="pt-20 pb-24 border-b border-gray-200 reveal" id="hero">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-16">
       <div class="md:w-1/2 text-center md:text-left">
-        <p class="text-xl text-[#b8860b] font-semibold mb-3">DCK Agency</p>
-        <h1 class="text-6xl md:text-7xl font-extrabold leading-tight text-[#4a2d1d] mb-6">
-          Your message, <br><span class="text-[#b8860b]">a creative force.</span>
+        <p class="text-xl text-[var(--brand-gold)] font-semibold mb-3">DCK Agency</p>
+        <h1 class="text-6xl md:text-7xl font-extrabold leading-tight text-[var(--brand-brown)] mb-6">
+          Your message, <br><span class="text-[var(--brand-gold)]">a creative force.</span>
         </h1>
         <p class="text-xl text-gray-700 mb-10 max-w-lg md:max-w-none mx-auto">
           From idea to page, from concept to screen — we turn your vision into engaging, high-performing content. Strategy, copywriting, SEO, design: one agency, many solutions.
         </p>
         <div class="flex flex-col sm:flex-row space-y-5 sm:space-y-0 sm:space-x-6 justify-center md:justify-start">
-          <a href="#services" class="w-full sm:w-auto px-10 py-4 text-xl font-bold text-white bg-[#b8860b] rounded-full shadow-lg transition-transform duration-300 hover:-translate-y-0.5 active:translate-y-0 hover:bg-[#a5780a]">Explore our solutions</a>
-          <a href="#contact" class="w-full sm:w-auto px-10 py-4 text-xl font-bold text-[#b8860b] bg-white border-2 border-[#b8860b] rounded-full shadow-lg transition-transform duration-300 hover:-translate-y-0.5 active:translate-y-0 hover:bg-[#fff9f5]">Let's talk</a>
+          <a href="#services" class="w-full sm:w-auto px-10 py-4 text-xl font-bold text-white bg-[var(--brand-gold)] rounded-full shadow-lg transition-transform duration-300 hover:-translate-y-0.5 active:translate-y-0 hover:bg-[#a5780a]">Explore our solutions</a>
+          <a href="#contact" class="w-full sm:w-auto px-10 py-4 text-xl font-bold text-[var(--brand-gold)] bg-white border-2 border-[var(--brand-gold)] rounded-full shadow-lg transition-transform duration-300 hover:-translate-y-0.5 active:translate-y-0 hover:bg-[#fff9f5]">Let's talk</a>
         </div>
       </div>
 
       <div class="md:w-1/2 mt-12 md:mt-0 flex justify-center relative">
-        <img src="../images/Dckay_logo.png" loading="lazy" decoding="async" alt="DCK Agency logo, stylized"
-             class="w-full max-w-md h-auto object-contain rounded-3xl p-6 bg-white shadow-2xl border-4 border-[#b8860b] transform rotate-[-3deg] hover:rotate-0 transition duration-500 ease-in-out">
+        <img id="hero-img" src="../images/HeroBanner.png" loading="lazy" decoding="async" alt="DCK Agency logo, stylized"
+             class="w-full max-w-md h-auto object-contain rounded-3xl shadow-2xl border-4 border-[var(--brand-gold)] transform rotate-[-3deg] transition duration-500 ease-in-out will-change-transform">
         <p class="absolute bottom-8 right-8 text-white bg-black/60 px-4 py-2 rounded-lg text-lg font-semibold transform rotate-[-3deg]">The art of content</p>
       </div>
     </div>
@@ -155,20 +187,20 @@
       </p>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-        <div class="card-service card-tilt bg-white p-8 rounded-2xl shadow-xl border-t-8 border-[#b8860b]">
-          <h3 class="text-2xl font-bold text-[#4a2d1d] mb-3">Editorial Direction</h3>
+        <div class="card-service card-tilt bg-white p-8 rounded-2xl shadow-xl border-t-8 border-[var(--brand-gold)]">
+          <h3 class="text-2xl font-bold text-[var(--brand-brown)] mb-3">Editorial Direction</h3>
           <p class="text-gray-600 leading-relaxed">Define your voice! We craft your editorial line, manage production, and ensure final quality across print and web.</p>
         </div>
-        <div class="card-service card-tilt bg-white p-8 rounded-2xl shadow-xl border-t-8 border-[#b8860b]">
-          <h3 class="text-2xl font-bold text-[#4a2d1d] mb-3">Engaging Copy</h3>
+        <div class="card-service card-tilt bg-white p-8 rounded-2xl shadow-xl border-t-8 border-[var(--brand-gold)]">
+          <h3 class="text-2xl font-bold text-[var(--brand-brown)] mb-3">Engaging Copy</h3>
           <p class="text-gray-600 leading-relaxed">From incisive press articles to dynamic web content, we write to inform, captivate, and convert.</p>
         </div>
-        <div class="card-service card-tilt bg-white p-8 rounded-2xl shadow-xl border-t-8 border-[#b8860b]">
-          <h3 class="text-2xl font-bold text-[#4a2d1d] mb-3">High-Impact SEO</h3>
+        <div class="card-service card-tilt bg-white p-8 rounded-2xl shadow-xl border-t-8 border-[var(--brand-gold)]">
+          <h3 class="text-2xl font-bold text-[var(--brand-brown)] mb-3">High-Impact SEO</h3>
           <p class="text-gray-600 leading-relaxed">Be found. We optimize content for search engines without compromising quality or relevance.</p>
         </div>
-        <div class="card-service card-tilt bg-white p-8 rounded-2xl shadow-xl border-t-8 border-[#b8860b]">
-          <h3 class="text-2xl font-bold text-[#4a2d1d] mb-3">Design & Layout</h3>
+        <div class="card-service card-tilt bg-white p-8 rounded-2xl shadow-xl border-t-8 border-[var(--brand-gold)]">
+          <h3 class="text-2xl font-bold text-[var(--brand-brown)] mb-3">Design & Layout</h3>
           <p class="text-gray-600 leading-relaxed">Visuals that elevate your message — impactful print layouts and sleek digital design.</p>
         </div>
       </div>
@@ -182,10 +214,10 @@
       <p class="text-xl text-gray-700 mt-5 mb-16 max-w-4xl leading-relaxed">A custom approach for every project. Here’s how we make a difference.</p>
 
       <div class="space-y-16">
-        <div class="bg-white p-8 md:p-12 rounded-3xl shadow-2xl flex flex-col md:flex-row items-start border-l-8 border-[#b8860b]">
+        <div class="bg-white p-8 md:p-12 rounded-3xl shadow-2xl flex flex-col md:flex-row items-start border-l-8 border-[var(--brand-gold)]">
           <div class="md:w-1/3 mb-6 md:mb-0">
-            <h3 class="text-3xl font-bold text-[#4a2d1d]">1. Strategy & Leadership</h3>
-            <p class="text-lg text-[#b8860b] mt-2">Your vision, our roadmap.</p>
+            <h3 class="text-3xl font-bold text-[var(--brand-brown)]">1. Strategy & Leadership</h3>
+            <p class="text-lg text-[var(--brand-gold)] mt-2">Your vision, our roadmap.</p>
           </div>
           <div class="md:w-2/3 md:pl-12">
             <ul class="list-disc list-inside space-y-3 text-gray-700 text-lg">
@@ -196,10 +228,10 @@
           </div>
         </div>
 
-        <div class="bg-white p-8 md:p-12 rounded-3xl shadow-2xl flex flex-col md:flex-row items-start border-l-8 border-[#b8860b]">
+        <div class="bg-white p-8 md:p-12 rounded-3xl shadow-2xl flex flex-col md:flex-row items-start border-l-8 border-[var(--brand-gold)]">
           <div class="md:w-1/3 mb-6 md:mb-0">
-            <h3 class="text-3xl font-bold text-[#4a2d1d]">2. Impactful Copy</h3>
-            <p class="text-lg text-[#b8860b] mt-2">Words that come to life.</p>
+            <h3 class="text-3xl font-bold text-[var(--brand-brown)]">2. Impactful Copy</h3>
+            <p class="text-lg text-[var(--brand-gold)] mt-2">Words that come to life.</p>
           </div>
           <div class="md:w-2/3 md:pl-12">
             <ul class="list-disc list-inside space-y-3 text-gray-700 text-lg">
@@ -210,10 +242,10 @@
           </div>
         </div>
 
-        <div class="bg-white p-8 md:p-12 rounded-3xl shadow-2xl flex flex-col md:flex-row items-start border-l-8 border-[#b8860b]">
+        <div class="bg-white p-8 md:p-12 rounded-3xl shadow-2xl flex flex-col md:flex-row items-start border-l-8 border-[var(--brand-gold)]">
           <div class="md:w-1/3 mb-6 md:mb-0">
-            <h3 class="text-3xl font-bold text-[#4a2d1d]">3. Digital Visibility</h3>
-            <p class="text-lg text-[#b8860b] mt-2">Reach your audience.</p>
+            <h3 class="text-3xl font-bold text-[var(--brand-brown)]">3. Digital Visibility</h3>
+            <p class="text-lg text-[var(--brand-gold)] mt-2">Reach your audience.</p>
           </div>
           <div class="md:w-2/3 md:pl-12">
             <ul class="list-disc list-inside space-y-3 text-gray-700 text-lg">
@@ -224,10 +256,10 @@
           </div>
         </div>
 
-        <div class="bg-white p-8 md:p-12 rounded-3xl shadow-2xl flex flex-col md:flex-row items-start border-l-8 border-[#b8860b]">
+        <div class="bg-white p-8 md:p-12 rounded-3xl shadow-2xl flex flex-col md:flex-row items-start border-l-8 border-[var(--brand-gold)]">
           <div class="md:w-1/3 mb-6 md:mb-0">
-            <h3 class="text-3xl font-bold text-[#4a2d1d]">4. Design & Mockups</h3>
-            <p class="text-lg text-[#b8860b] mt-2">Visual impact that serves the message.</p>
+            <h3 class="text-3xl font-bold text-[var(--brand-brown)]">4. Design & Mockups</h3>
+            <p class="text-lg text-[var(--brand-gold)] mt-2">Visual impact that serves the message.</p>
           </div>
           <div class="md:w-2/3 md:pl-12">
             <ul class="list-disc list-inside space-y-3 text-gray-700 text-lg">
@@ -251,27 +283,27 @@
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8">
         <div class="card-service card-tilt bg-white p-4 rounded-xl shadow-lg border border-gray-100 transform hover:scale-105 transition duration-300">
           <img src="../images/Couv_Confidentiel.jpg" loading="lazy" decoding="async" alt="Confidentiel magazine cover." class="w-full h-auto object-cover rounded-md mb-2">
-          <p class="text-sm font-semibold text-[#4a2d1d]">Confidentiel</p>
+          <p class="text-sm font-semibold text-[var(--brand-brown)]">Confidentiel</p>
         </div>
         <div class="card-service card-tilt bg-white p-4 rounded-xl shadow-lg border border-gray-100 transform hover:scale-105 transition duration-300">
           <img src="../images/Couv_MagicMaman.png" loading="lazy" decoding="async" alt="Magic Maman magazine cover." class="w-full h-auto object-cover rounded-md mb-2">
-          <p class="text-sm font-semibold text-[#4a2d1d]">Magic Maman</p>
+          <p class="text-sm font-semibold text-[var(--brand-brown)]">Magic Maman</p>
         </div>
         <div class="card-service card-tilt bg-white p-4 rounded-xl shadow-lg border border-gray-100 transform hover:scale-105 transition duration-300">
           <img src="../images/Couv_IconLife.jpg" loading="lazy" decoding="async" alt="Icon Life magazine cover." class="w-full h-auto object-cover rounded-md mb-2">
-          <p class="text-sm font-semibold text-[#4a2d1d]">Icon Life</p>
+          <p class="text-sm font-semibold text-[var(--brand-brown)]">Icon Life</p>
         </div>
         <div class="card-service card-tilt bg-white p-4 rounded-xl shadow-lg border border-gray-100 transform hover:scale-105 transition duration-300">
           <img src="../images/Couv_GlamMag.jpg" loading="lazy" decoding="async" alt="Glam Mag cover." class="w-full h-auto object-cover rounded-md mb-2">
-          <p class="text-sm font-semibold text-[#4a2d1d]">Bio Mag</p>
+          <p class="text-sm font-semibold text-[var(--brand-brown)]">Bio Mag</p>
         </div>
         <div class="card-service card-tilt bg-white p-4 rounded-xl shadow-lg border border-gray-100 transform hover:scale-105 transition duration-300">
           <img src="../images/Couv_Oops.jpg" loading="lazy" decoding="async" alt="Oops magazine cover." class="w-full h-auto object-cover rounded-md mb-2">
-          <p class="text-sm font-semibold text-[#4a2d1d]">Oops</p>
+          <p class="text-sm font-semibold text-[var(--brand-brown)]">Oops</p>
         </div>
         <div class="card-service card-tilt bg-white p-4 rounded-xl shadow-lg border border-gray-100 transform hover:scale-105 transition duration-300">
           <img src="../images/Couv_LND.png" loading="lazy" decoding="async" alt="Le Nouveau Détective cover." class="w-full h-auto object-cover rounded-md mb-2">
-          <p class="text-sm font-semibold text-[#4a2d1d]">Le Nouveau Détective</p>
+          <p class="text-sm font-semibold text-[var(--brand-brown)]">Le Nouveau Détective</p>
         </div>
       </div>
 
@@ -282,73 +314,97 @@
   <!-- CONTACT -->
   <section id="contact" class="py-24 bg-[#e0d6cd] bg-opacity-70 reveal">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-5xl font-extrabold text-[#4a2d1d] mb-6 leading-tight">Ready to elevate <br><span class="text-[#b8860b]">your communication?</span></h2>
+      <h2 class="text-5xl font-extrabold text-[var(--brand-brown)] mb-6 leading-tight">Ready to elevate <br><span class="text-[var(--brand-gold)]">your communication?</span></h2>
       <p class="text-xl text-gray-700 mb-12 max-w-2xl mx-auto leading-relaxed">Contact DCK Agency today to take your content and creative projects to the next level.</p>
 
-      <div class="bg-white p-10 rounded-3xl shadow-2xl border-t-8 border-[#b8860b] max-w-xl mx-auto">
+      <div class="bg-white p-10 rounded-3xl shadow-2xl border-t-8 border-[var(--brand-gold)] max-w-xl mx-auto">
         <form id="contact-form" onsubmit="handleFormSubmit(event)">
-          <div class="mb-5"><input type="text" id="name" placeholder="Your full name or company" required class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-[#b8860b] focus:border-[#b8860b] transition duration-150 text-lg"></div>
-          <div class="mb-5"><input type="email" id="email" placeholder="Your business email" required class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-[#b8860b] focus:border-[#b8860b] transition duration-150 text-lg"></div>
-          <div class="mb-7"><textarea id="message" rows="5" placeholder="Tell us about your project..." required class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-[#b8860b] focus:border-[#b8860b] transition duration-150 text-lg"></textarea></div>
+          <div class="mb-5"><input type="text" id="name" placeholder="Your full name or company" required class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-[var(--brand-gold)] focus:border-[var(--brand-gold)] transition duration-150 text-lg"></div>
+          <div class="mb-5"><input type="email" id="email" placeholder="Your business email" required class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-[var(--brand-gold)] focus:border-[var(--brand-gold)] transition duration-150 text-lg"></div>
+          <div class="mb-7"><textarea id="message" rows="5" placeholder="Tell us about your project..." required class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-[var(--brand-gold)] focus:border-[var(--brand-gold)] transition duration-150 text-lg"></textarea></div>
           <button type="submit" class="w-full px-8 py-4 text-xl font-bold text-white bg-[#4a2d1d] rounded-full shadow-lg transition-transform duration-300 hover:-translate-y-0.5 active:translate-y-0 hover:bg-[#332015]">Send inquiry</button>
         </form>
         <div id="form-message" class="mt-6 text-green-700 font-semibold text-lg hidden"></div>
       </div>
 
       <div class="mt-16 text-center">
-        <p class="text-2xl font-bold text-[#4a2d1d]">Direct Contact:</p>
-        <a href="mailto:contact@dckagency.com" class="text-2xl text-[#b8860b] hover:underline block mt-4"><span class="font-mono">contact@dckagency.com</span></a>
+        <p class="text-2xl font-bold text-[var(--brand-brown)]">Direct Contact:</p>
+        <a href="mailto:contact@dckagency.com" class="text-2xl text-[var(--brand-gold)] hover:underline block mt-4"><span class="font-mono">contact@dckagency.com</span></a>
       </div>
     </div>
   </section>
 
-  <footer class="bg-[#4a2d1d] text-white py-8">
+  <footer class="bg-[var(--brand-brown)] text-white py-8">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
       <p>&copy; 2019 DCK Agency. All rights reserved.</p>
       <p class="mt-2 text-gray-300">Strategy, Creation, Impact.</p>
     </div>
   </footer>
 
-  <button id="toTop" class="fixed bottom-6 right-6 hidden px-3 py-2 rounded-full bg-[#b8860b] text-white shadow-lg" aria-label="Back to top">↑</button>
+  <button id="toTop" class="fixed bottom-6 right-6 hidden px-3 py-2 rounded-full bg-[var(--brand-gold)] text-white shadow-lg" aria-label="Back to top">↑</button>
 
   <script>
-    // Menu mobile
     const mobileBtn=document.getElementById('mobile-menu-button');
     const mobileMenu=document.getElementById('mobile-menu');
     mobileBtn?.addEventListener('click',()=> mobileMenu.classList.toggle('hidden'));
     document.querySelectorAll('#mobile-menu a').forEach(a=>a.addEventListener('click',()=> mobileMenu.classList.add('hidden')));
 
-    // Nav shadow
     const nav=document.querySelector('nav.sticky');
-    const onScroll=()=>{ if(window.scrollY>4) nav.classList.add('shadow-md'); else nav.classList.remove('shadow-md'); };
-    onScroll(); window.addEventListener('scroll',onScroll);
+    const bar=document.getElementById('scrollbar');
+    const heroImg=document.getElementById('hero-img');
+    const root=document.documentElement;
 
-    // Active link per section
+    function onScroll(){
+      const y=window.scrollY||document.documentElement.scrollTop;
+      if(y>4) nav.classList.add('shadow-md'); else nav.classList.remove('shadow-md');
+      const h=document.documentElement.scrollHeight - window.innerHeight;
+      const p=Math.max(0, Math.min(1, y/h));
+      bar.style.width=(p*100)+'%';
+      const hue=30 + Math.round(p*12);
+      root.style.setProperty('--scroll-hue', hue);
+      if(heroImg) heroImg.style.transform = `translateY(${p*12}px) rotate(-3deg)`;
+    }
+    onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
     const sections=['expertise','services','portfolio','contact'].map(id=>document.getElementById(id)).filter(Boolean);
     const links=[...document.querySelectorAll('.nav-link')];
+    const linksContainer=document.querySelector('.nav-links');
+
+    function setActiveLinkById(id){
+      let any=false;
+      links.forEach(a=>{
+        const active = a.getAttribute('href')==='#'+id;
+        a.classList.toggle('active', active);
+        if(active) any=true;
+      });
+      linksContainer?.classList.toggle('has-active', any);
+    }
+
+    links.forEach(a=>{
+      a.addEventListener('click', ()=>{
+        const id = a.getAttribute('href')?.replace('#','');
+        if(id) setActiveLinkById(id);
+      });
+    });
+
     const observer=new IntersectionObserver((entries)=>{
       entries.forEach(entry=>{
         const id=entry.target.id;
-        const link=links.find(a=>a.getAttribute('href')==='#'+id);
-        if(!link) return;
-        if(entry.isIntersecting){ links.forEach(a=>a.classList.remove('active')); link.classList.add('active'); }
+        if(entry.isIntersecting){ setActiveLinkById(id); }
       });
-    },{rootMargin:'-40% 0px -50% 0px', threshold:0.1});
+    },{rootMargin:'-35% 0px -55% 0px', threshold:0.1});
     sections.forEach(sec=>observer.observe(sec));
 
-    // Reveal on scroll
     const revealEls=document.querySelectorAll('.reveal');
     const ioReveal=new IntersectionObserver((entries)=>{
       entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); ioReveal.unobserve(e.target);} });
     },{threshold:.12, rootMargin:'0px 0px -10% 0px'});
     revealEls.forEach(el=> ioReveal.observe(el));
 
-    // Back to top
     const toTop=document.getElementById('toTop');
     window.addEventListener('scroll',()=> toTop.classList.toggle('hidden', window.scrollY<400));
     toTop.addEventListener('click',()=> window.scrollTo({top:0, behavior:'smooth'}));
 
-    // Dark mode
     function toggleTheme(){
       const r=document.documentElement;
       const isDark=r.classList.toggle('dark');
@@ -357,7 +413,6 @@
     document.getElementById('theme-toggle')?.addEventListener('click',toggleTheme);
     document.getElementById('theme-toggle-mobile')?.addEventListener('click',toggleTheme);
 
-    // Fake form
     function handleFormSubmit(e){
       e.preventDefault();
       const form=document.getElementById('contact-form');
