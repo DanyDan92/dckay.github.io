@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DCK Agency - Agence Marketing & Communication (PME)</title>
+  <title>DCK Agency - Agence Marketing & Communication</title>
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -12,9 +12,9 @@
   <style>html{scroll-behavior:smooth}</style>
 
   <!-- SEO / Social -->
-  <meta name="description" content="DCK Agency : agence marketing & communication pour PME. Stratégie, contenus, design, supports de marque. Optimisation des outils & méthodes (option)."/>
+  <meta name="description" content="DCK Agency : agence marketing & communication pour PME. Stratégie & contenus, design, supports, présence digitale. Option : optimisation des outils & méthodes."/>
   <meta property="og:title" content="DCK Agency — Agence Marketing & Communication"/>
-  <meta property="og:description" content="Stratégie, contenus, design, supports : une agence au service des PME."/>
+  <meta property="og:description" content="Stratégie & contenus, design, supports, digital. Une agence pensée pour les PME."/>
   <meta property="og:type" content="website"/>
   <meta property="og:image" content="images/og-cover.jpg"/>
   <meta property="og:url" content="https://danydan92.github.io/dckay.github.io/"/>
@@ -75,7 +75,7 @@
     }
 
     /* Compense la nav sticky pour les ancres */
-    #expertise, #services, #projects, #contact { scroll-margin-top: 96px; }
+    #expertise, #services, #portfolio, #contact { scroll-margin-top: 96px; }
 
     .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;}
 
@@ -84,6 +84,7 @@
     }
   </style>
 </head>
+
 <body class="scroll-bg">
 
   <!-- Progress bar scroll -->
@@ -103,9 +104,9 @@
 
         <div class="hidden md:flex items-center gap-6 lg:gap-10">
           <ul class="nav-links flex items-center gap-6 lg:gap-8">
-            <li><a href="#expertise" class="nav-link relative font-semibold text-gray-800 hover:text-[var(--brand-brown)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-gold)] focus-visible:rounded-md">Notre approche<span class="nav-underline"></span></a></li>
+            <li><a href="#expertise" class="nav-link relative font-semibold text-gray-800 hover:text-[var(--brand-brown)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-gold)] focus-visible:rounded-md">Nos forces<span class="nav-underline"></span></a></li>
             <li><a href="#services"  class="nav-link relative font-semibold text-gray-800 hover:text-[var(--brand-brown)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-gold)] focus-visible:rounded-md">Nos services<span class="nav-underline"></span></a></li>
-            <li><a href="#projects" class="nav-link relative font-semibold text-gray-800 hover:text-[var(--brand-brown)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-gold)] focus-visible:rounded-md">Sélection de projets<span class="nav-underline"></span></a></li>
+            <li><a href="#portfolio" class="nav-link relative font-semibold text-gray-800 hover:text-[var(--brand-brown)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-gold)] focus-visible:rounded-md">Sélection de projets<span class="nav-underline"></span></a></li>
           </ul>
 
           <a href="#contact" class="px-5 py-2.5 bg-[var(--brand-gold)] text-white rounded-full font-semibold shadow-md transition-transform duration-300 hover:-translate-y-0.5 active:translate-y-0 hover:bg-[#a5780a]">Contact</a>
@@ -126,9 +127,9 @@
 
     <div id="mobile-menu" class="hidden md:hidden border-t border-neutral-200 bg-white shadow-sm">
       <div class="px-4 py-3 flex flex-col gap-2">
-        <a href="#expertise" class="mobile-link">Notre approche</a>
+        <a href="#expertise" class="mobile-link">Nos forces</a>
         <a href="#services" class="mobile-link">Nos services</a>
-        <a href="#projects" class="mobile-link">Sélection de projets</a>
+        <a href="#portfolio" class="mobile-link">Sélection de projets</a>
         <a href="#contact" class="mobile-cta">Contact</a>
         <div class="flex items-center gap-2 pt-2 border-t border-neutral-100">
           <span class="px-3 py-1 rounded-full bg-[var(--brand-gold)] text-white font-semibold text-sm">FR</span>
@@ -142,63 +143,67 @@
   <header class="pt-20 pb-24 border-b border-gray-200 reveal" id="hero">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-16">
       <div class="md:w-1/2 text-center md:text-left">
-        <p class="text-xl text-[var(--brand-gold)] font-semibold mb-3">DCK Agency</p>
+        <p class="text-xl text-[var(--brand-gold)] font-semibold mb-3">Agence marketing & communication — PME</p>
+
         <h1 class="text-6xl md:text-7xl font-extrabold leading-tight text-[var(--brand-brown)] mb-6">
-          Agence marketing & communication<br><span class="text-[var(--brand-gold)]">pour PME.</span>
+          Une image forte, <br><span class="text-[var(--brand-gold)]">des messages qui comptent.</span>
         </h1>
+
         <p class="text-xl text-gray-700 mb-10 max-w-lg md:max-w-none mx-auto">
-          Nous aidons les entreprises à clarifier leur message, renforcer leur image et produire des supports cohérents.
-          Contenus éditoriaux premium, design de marque et supports marketing — avec une approche structurée, orientée résultats.
+          DCK Agency accompagne les PME sur la stratégie, les contenus, le design et les supports de communication.
+          Objectif : vous rendre plus clair, plus crédible, plus impactant — sur le fond comme sur la forme.
         </p>
+
         <div class="flex flex-col sm:flex-row space-y-5 sm:space-y-0 sm:space-x-6 justify-center md:justify-start">
           <a href="#services" class="w-full sm:w-auto px-10 py-4 text-xl font-bold text-white bg-[var(--brand-gold)] rounded-full shadow-lg transition-transform duration-300 hover:-translate-y-0.5 active:translate-y-0 hover:bg-[#a5780a]">Découvrir nos services</a>
           <a href="#contact" class="w-full sm:w-auto px-10 py-4 text-xl font-bold text-[var(--brand-gold)] bg-white border-2 border-[var(--brand-gold)] rounded-full shadow-lg transition-transform duration-300 hover:-translate-y-0.5 active:translate-y-0 hover:bg-[#fff9f5]">Parlons de votre projet</a>
         </div>
 
-        <div class="mt-10 flex flex-col sm:flex-row gap-3 justify-center md:justify-start text-sm text-gray-600">
-          <span class="inline-flex items-center gap-2 bg-white/80 border border-neutral-200 rounded-full px-4 py-2 shadow-sm">
-            <span class="w-2 h-2 rounded-full bg-[var(--brand-gold)]"></span> Cible : PME
-          </span>
-          <span class="inline-flex items-center gap-2 bg-white/80 border border-neutral-200 rounded-full px-4 py-2 shadow-sm">
-            <span class="w-2 h-2 rounded-full bg-[var(--brand-gold)]"></span> Contenus + Design + Supports
-          </span>
+        <div class="mt-8 flex flex-wrap gap-2 justify-center md:justify-start">
+          <span class="px-3 py-1 rounded-full bg-white border border-neutral-200 text-sm font-semibold text-gray-700">Stratégie & contenus</span>
+          <span class="px-3 py-1 rounded-full bg-white border border-neutral-200 text-sm font-semibold text-gray-700">Design & identité</span>
+          <span class="px-3 py-1 rounded-full bg-white border border-neutral-200 text-sm font-semibold text-gray-700">Supports print & digital</span>
+          <span class="px-3 py-1 rounded-full bg-white border border-neutral-200 text-sm font-semibold text-gray-700">Sites vitrines</span>
         </div>
       </div>
 
       <div class="md:w-1/2 mt-12 md:mt-0 flex justify-center relative">
         <img id="hero-img" src="images/HeroBanner.png" loading="lazy" decoding="async"
-             alt="Univers visuel DCK Agency"
+             alt="DCK Agency"
              class="w-full max-w-md h-auto object-contain rounded-3xl shadow-2xl border-4 border-[var(--brand-gold)] transform rotate-[-3deg] transition duration-500 ease-in-out will-change-transform">
-        <p class="absolute bottom-8 right-8 text-white bg-black/60 px-4 py-2 rounded-lg text-lg font-semibold transform rotate-[-3deg]">Clarté • Impact • Cohérence</p>
+        <p class="absolute bottom-8 right-8 text-white bg-black/60 px-4 py-2 rounded-lg text-lg font-semibold transform rotate-[-3deg]">Agence. Création. Impact.</p>
       </div>
     </div>
   </header>
 
-  <!-- APPROCHE / EXPERTISE -->
+  <!-- EXPERTISE -->
   <section id="expertise" class="py-24 reveal">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="section-title mx-auto">Une approche d’agence, pensée pour les PME</h2>
+      <h2 class="section-title mx-auto">Nos forces au service des PME</h2>
       <p class="text-xl text-gray-600 mt-5 mb-16 max-w-4xl mx-auto leading-relaxed">
-        Nous combinons expertise éditoriale, sens du design et pilotage de production. L’objectif : des messages clairs,
-        une image cohérente, et des supports prêts à l’usage — sans complexité inutile.
+        Une agence structurée, pensée pour livrer vite et bien : stratégie, création, exécution et pilotage.
+        Selon les projets, nous mobilisons un réseau de freelances spécialisés, sélectionnés et pilotés par l’agence.
       </p>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
         <div class="card-service card-tilt bg-white p-8 rounded-2xl shadow-xl border-t-8 border-[var(--brand-gold)]">
-          <h3 class="text-2xl font-bold text-[var(--brand-brown)] mb-3">Vision & Structure</h3>
-          <p class="text-gray-600 leading-relaxed">On clarifie votre message, vos priorités et vos livrables. Une base solide avant de produire.</p>
+          <h3 class="text-2xl font-bold text-[var(--brand-brown)] mb-3">Stratégie & Clarté</h3>
+          <p class="text-gray-600 leading-relaxed">Positionnement, messages, angles, structure : on rend votre communication lisible et cohérente, pour que vos clients comprennent (et retiennent).</p>
         </div>
+
         <div class="card-service card-tilt bg-white p-8 rounded-2xl shadow-xl border-t-8 border-[var(--brand-gold)]">
-          <h3 class="text-2xl font-bold text-[var(--brand-brown)] mb-3">Production Premium</h3>
-          <p class="text-gray-600 leading-relaxed">Contenus éditoriaux, supports marketing, maquettes : qualité, cohérence et rigueur.</p>
+          <h3 class="text-2xl font-bold text-[var(--brand-brown)] mb-3">Contenus Premium</h3>
+          <p class="text-gray-600 leading-relaxed">Rédaction, storytelling, SEO, maquettes éditoriales : un savoir-faire issu de l’édition et de la presse, adapté aux enjeux des marques et des PME.</p>
         </div>
+
         <div class="card-service card-tilt bg-white p-8 rounded-2xl shadow-xl border-t-8 border-[var(--brand-gold)]">
-          <h3 class="text-2xl font-bold text-[var(--brand-brown)] mb-3">Design & Cohérence</h3>
-          <p class="text-gray-600 leading-relaxed">Une marque lisible, crédible, et alignée sur tous vos supports print & digital.</p>
+          <h3 class="text-2xl font-bold text-[var(--brand-brown)] mb-3">Design qui vend</h3>
+          <p class="text-gray-600 leading-relaxed">Identité, supports, présentation : un design utile et convaincant, qui hiérarchise l’information et renforce votre crédibilité.</p>
         </div>
+
         <div class="card-service card-tilt bg-white p-8 rounded-2xl shadow-xl border-t-8 border-[var(--brand-gold)]">
-          <h3 class="text-2xl font-bold text-[var(--brand-brown)] mb-3">Réseau d’experts</h3>
-          <p class="text-gray-600 leading-relaxed">Selon les projets, nous mobilisons des freelances spécialisés, sélectionnés et pilotés par l’agence.</p>
+          <h3 class="text-2xl font-bold text-[var(--brand-brown)] mb-3">Pilotage & Qualité</h3>
+          <p class="text-gray-600 leading-relaxed">Planning, coordination, contrôle qualité : une exécution carrée, avec un point de contact unique et des livrables prêts à l’usage.</p>
         </div>
       </div>
     </div>
@@ -209,22 +214,24 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="section-title mx-auto md:mx-0">Nos services</h2>
       <p class="text-xl text-gray-700 mt-5 mb-16 max-w-4xl leading-relaxed">
-        Des prestations conçues pour les PME : claires, utiles, et livrables rapidement. On s’adapte à vos priorités et à votre rythme.
+        Une offre claire pour les PME : du fond (stratégie & contenus) à la forme (design & supports),
+        jusqu’au digital. Et, si besoin, une option d’optimisation des outils & méthodes.
       </p>
 
-      <div class="space-y-12">
+      <div class="space-y-16">
+
         <!-- 1 -->
         <div class="bg-white p-8 md:p-12 rounded-3xl shadow-2xl flex flex-col md:flex-row items-start border-l-8 border-[var(--brand-gold)]">
           <div class="md:w-1/3 mb-6 md:mb-0">
             <h3 class="text-3xl font-bold text-[var(--brand-brown)]">1. Stratégie & Contenus</h3>
-            <p class="text-lg text-[var(--brand-gold)] mt-2">Le fond, la crédibilité, la régularité.</p>
+            <p class="text-lg text-[var(--brand-gold)] mt-2">Le socle de votre communication.</p>
           </div>
           <div class="md:w-2/3 md:pl-12">
             <ul class="list-disc list-inside space-y-3 text-gray-700 text-lg">
-              <li><strong>Direction éditoriale :</strong> ligne, ton, formats, planning.</li>
-              <li><strong>Rédaction premium :</strong> magazine, web, pages, newsletters.</li>
-              <li><strong>SEO (si utile) :</strong> contenus optimisés sans sacrifier la qualité.</li>
-              <li><strong>Maquettage éditorial :</strong> mise en page, cohérence, relectures.</li>
+              <li><strong>Direction éditoriale :</strong> ligne, ton, formats, calendrier.</li>
+              <li><strong>Rédaction premium :</strong> web, print, marque, interviews, SEO.</li>
+              <li><strong>Storytelling :</strong> structurer le message, clarifier l’offre.</li>
+              <li><strong>Maquettage éditorial :</strong> cohérence textes + mise en page (selon projets).</li>
             </ul>
           </div>
         </div>
@@ -232,15 +239,14 @@
         <!-- 2 -->
         <div class="bg-white p-8 md:p-12 rounded-3xl shadow-2xl flex flex-col md:flex-row items-start border-l-8 border-[var(--brand-gold)]">
           <div class="md:w-1/3 mb-6 md:mb-0">
-            <h3 class="text-3xl font-bold text-[var(--brand-brown)]">2. Design & Image de marque</h3>
-            <p class="text-lg text-[var(--brand-gold)] mt-2">Une identité cohérente et désirable.</p>
+            <h3 class="text-3xl font-bold text-[var(--brand-brown)]">2. Design & Image de Marque</h3>
+            <p class="text-lg text-[var(--brand-gold)] mt-2">Être cohérent, crédible, mémorable.</p>
           </div>
           <div class="md:w-2/3 md:pl-12">
             <ul class="list-disc list-inside space-y-3 text-gray-700 text-lg">
-              <li><strong>Logo & identité visuelle :</strong> création ou refonte, charte, guidelines.</li>
-              <li><strong>Direction artistique :</strong> cohérence graphique sur tous supports.</li>
+              <li><strong>Logo & identité :</strong> création ou refonte, charte, déclinaisons.</li>
+              <li><strong>Direction artistique :</strong> cohérence visuelle multi-supports.</li>
               <li><strong>Templates :</strong> kits réutilisables (présentations, posts, docs).</li>
-              <li><strong>Harmonisation :</strong> modernisation de l’existant sans tout casser.</li>
             </ul>
           </div>
         </div>
@@ -248,15 +254,14 @@
         <!-- 3 -->
         <div class="bg-white p-8 md:p-12 rounded-3xl shadow-2xl flex flex-col md:flex-row items-start border-l-8 border-[var(--brand-gold)]">
           <div class="md:w-1/3 mb-6 md:mb-0">
-            <h3 class="text-3xl font-bold text-[var(--brand-brown)]">3. Supports marketing & communication</h3>
-            <p class="text-lg text-[var(--brand-gold)] mt-2">Des outils concrets pour vendre et convaincre.</p>
+            <h3 class="text-3xl font-bold text-[var(--brand-brown)]">3. Supports de Communication</h3>
+            <p class="text-lg text-[var(--brand-gold)] mt-2">Du concret, prêt à diffuser.</p>
           </div>
           <div class="md:w-2/3 md:pl-12">
             <ul class="list-disc list-inside space-y-3 text-gray-700 text-lg">
-              <li><strong>Supports print :</strong> brochures, flyers, dossiers, plaquettes.</li>
-              <li><strong>Supports digitaux :</strong> présentations, PDF, media kits, visuels.</li>
-              <li><strong>Outils commerciaux :</strong> pitch, argumentaires, documents de vente.</li>
-              <li><strong>Clarté du message :</strong> hiérarchie, lisibilité, structure.</li>
+              <li><strong>Supports print :</strong> plaquettes, brochures, magazines, flyers.</li>
+              <li><strong>Supports digitaux :</strong> PDF, présentations, visuels web.</li>
+              <li><strong>Outils commerciaux :</strong> pitch deck, one-pager, docs de vente.</li>
             </ul>
           </div>
         </div>
@@ -264,93 +269,83 @@
         <!-- 4 -->
         <div class="bg-white p-8 md:p-12 rounded-3xl shadow-2xl flex flex-col md:flex-row items-start border-l-8 border-[var(--brand-gold)]">
           <div class="md:w-1/3 mb-6 md:mb-0">
-            <h3 class="text-3xl font-bold text-[var(--brand-brown)]">4. Sites internet & présence digitale</h3>
-            <p class="text-lg text-[var(--brand-gold)] mt-2">Une vitrine utile, alignée, sans complexité.</p>
+            <h3 class="text-3xl font-bold text-[var(--brand-brown)]">4. Présence Digitale</h3>
+            <p class="text-lg text-[var(--brand-gold)] mt-2">Une vitrine alignée à votre marque.</p>
           </div>
           <div class="md:w-2/3 md:pl-12">
             <ul class="list-disc list-inside space-y-3 text-gray-700 text-lg">
-              <li><strong>Sites vitrines :</strong> pages essentielles, design premium, responsive.</li>
-              <li><strong>Refontes :</strong> modernisation, clarification, cohérence visuelle.</li>
-              <li><strong>Intégration contenus :</strong> textes, visuels, structure claire.</li>
-              <li><strong>SEO léger :</strong> base propre si nécessaire.</li>
+              <li><strong>Sites vitrines :</strong> sobres, élégants, efficaces.</li>
+              <li><strong>Refonte :</strong> design, structure, clarté des contenus.</li>
+              <li><strong>Intégration :</strong> visuels + messages + call-to-action.</li>
             </ul>
           </div>
         </div>
 
-        <!-- 5 (discret) -->
-        <div class="bg-white/70 p-8 md:p-10 rounded-3xl shadow-xl border border-neutral-200">
-          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-            <div>
-              <h3 class="text-2xl font-bold text-[var(--brand-brown)]">Optimisation des outils & méthodes <span class="text-sm font-semibold text-gray-500">(option)</span></h3>
-              <p class="text-gray-700 mt-2 max-w-3xl">
-                Pour les PME qui veulent aller plus loin : on simplifie, on structure, et on automatise ce qui peut l’être — sans jargon, sans usine à gaz.
+        <!-- OPTION A DISCRÈTE -->
+        <div class="bg-[#fff9f1] p-8 md:p-10 rounded-3xl shadow-xl border border-[rgba(184,134,11,.25)]">
+          <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
+            <div class="md:w-1/2">
+              <h3 class="text-2xl md:text-3xl font-bold text-[var(--brand-brown)]">Option : Optimisation des outils & méthodes</h3>
+              <p class="text-lg text-gray-700 mt-2">
+                Pour les PME qui veulent aller plus loin : simplifier, fiabiliser, et gagner du temps au quotidien — sans jargon.
               </p>
-              <ul class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-2 text-gray-700">
-                <li>• Audit léger des irritants</li>
-                <li>• Process simples et tenables</li>
-                <li>• Automatisation ciblée / IA appliquée</li>
-                <li>• Mise en place + formation</li>
+            </div>
+            <div class="md:w-1/2">
+              <ul class="list-disc list-inside space-y-2 text-gray-700 text-lg">
+                <li><strong>Audit léger :</strong> points de friction & gains rapides.</li>
+                <li><strong>Automatisation ciblée :</strong> tâches répétitives, transferts d’infos, relances.</li>
+                <li><strong>IA appliquée :</strong> assistance à la production, structuration, organisation.</li>
+                <li><strong>Accompagnement :</strong> mise en place + formation des équipes.</li>
               </ul>
             </div>
-            <a href="#contact" class="shrink-0 inline-flex justify-center px-6 py-3 rounded-full font-semibold bg-white border-2 border-[var(--brand-gold)] text-[var(--brand-gold)] shadow hover:bg-[#fff9f5] transition">
-              En parler
-            </a>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
   <!-- PROJETS -->
-  <section id="projects" class="py-24 reveal">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center">
-        <h2 class="section-title mx-auto">Sélection de projets</h2>
-        <p class="text-xl text-gray-600 mt-5 mb-16 max-w-4xl mx-auto leading-relaxed">
-          Une sélection de projets digitaux réalisés par l’agence ou ses associés. Selon les projets, nous mobilisons des freelances spécialisés, pilotés par DCK Agency.
-        </p>
-      </div>
+  <section id="portfolio" class="py-24 reveal">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="section-title mx-auto">Sélection de projets</h2>
+      <p class="text-xl text-gray-600 mt-5 mb-16 max-w-4xl mx-auto leading-relaxed">
+        Une sélection représentative : projets digitaux, références éditoriales et supports.
+        Certains travaux design sont réalisés en confidentialité (exemples détaillés disponibles sur demande).
+      </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+      <!-- Projets digitaux (sans images pour éviter toute contrainte d’assets) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-14">
         <a href="https://marmari.com/" target="_blank" rel="noopener noreferrer"
-           class="card-service card-tilt bg-white rounded-3xl shadow-2xl border border-neutral-200 overflow-hidden">
-          <div class="p-8">
-            <p class="text-sm font-semibold text-[var(--brand-gold)]">Projet digital</p>
-            <h3 class="text-3xl font-bold text-[var(--brand-brown)] mt-2">Marmari</h3>
-            <p class="text-gray-700 mt-3 leading-relaxed">
-              E-commerce Shopify : design, structure des pages, cohérence de marque et expérience utilisateur.
-            </p>
-            <div class="mt-6 inline-flex items-center gap-2 text-[var(--brand-gold)] font-semibold">
-              Voir le site <span aria-hidden="true">→</span>
-            </div>
-          </div>
-          <div class="h-2 bg-[var(--brand-gold)]"></div>
+           class="card-service card-tilt bg-white p-8 rounded-2xl shadow-xl border border-neutral-100 text-left">
+          <p class="text-sm font-semibold text-[var(--brand-gold)]">Projet digital • Shopify</p>
+          <h3 class="text-3xl font-bold text-[var(--brand-brown)] mt-2">Marmari</h3>
+          <p class="text-gray-600 mt-3 leading-relaxed">
+            Conception & mise en place d’une boutique e-commerce : structure, expérience, cohérence visuelle et mise en valeur produit.
+          </p>
+          <p class="mt-5 inline-flex items-center gap-2 text-[var(--brand-gold)] font-semibold">
+            Voir le site <span aria-hidden="true">→</span>
+          </p>
         </a>
 
         <a href="https://gaflajewellery.com/" target="_blank" rel="noopener noreferrer"
-           class="card-service card-tilt bg-white rounded-3xl shadow-2xl border border-neutral-200 overflow-hidden">
-          <div class="p-8">
-            <p class="text-sm font-semibold text-[var(--brand-gold)]">Projet digital</p>
-            <h3 class="text-3xl font-bold text-[var(--brand-brown)] mt-2">Gafla Jewellery</h3>
-            <p class="text-gray-700 mt-3 leading-relaxed">
-              Boutique Shopify : mise en valeur produit, identité visuelle, parcours et hiérarchie d’information.
-            </p>
-            <div class="mt-6 inline-flex items-center gap-2 text-[var(--brand-gold)] font-semibold">
-              Voir le site <span aria-hidden="true">→</span>
-            </div>
-          </div>
-          <div class="h-2 bg-[var(--brand-gold)]"></div>
+           class="card-service card-tilt bg-white p-8 rounded-2xl shadow-xl border border-neutral-100 text-left">
+          <p class="text-sm font-semibold text-[var(--brand-gold)]">Projet digital • Shopify</p>
+          <h3 class="text-3xl font-bold text-[var(--brand-brown)] mt-2">Gafla Jewellery</h3>
+          <p class="text-gray-600 mt-3 leading-relaxed">
+            Boutique e-commerce premium : identité, hiérarchie, présentation du catalogue et expérience utilisateur.
+          </p>
+          <p class="mt-5 inline-flex items-center gap-2 text-[var(--brand-gold)] font-semibold">
+            Voir le site <span aria-hidden="true">→</span>
+          </p>
         </a>
       </div>
 
-      <!-- Références éditoriales (optionnel, conserve la crédibilité rédaction) -->
-      <div class="mt-20 text-center">
-        <h3 class="text-3xl font-bold text-[var(--brand-brown)]">Références éditoriales</h3>
-        <p class="text-lg text-gray-600 mt-4 max-w-4xl mx-auto">
-          Expertise historique de l’agence : direction éditoriale, rédaction et maquettage (presse & magazines).
-        </p>
+      <!-- Références éditoriales (tu gardes tes visuels existants) -->
+      <div class="text-left max-w-5xl mx-auto">
+        <h3 class="text-3xl font-bold text-[var(--brand-brown)] mb-6 text-center">Références éditoriales</h3>
 
-        <div class="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8">
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8">
           <div class="card-service card-tilt bg-white p-4 rounded-xl shadow-lg border border-gray-100 transform hover:scale-105 transition duration-300">
             <img src="images/Couv_Confidentiel.jpg" loading="lazy" decoding="async" alt="Couvertures du magazine Confidentiel." class="w-full h-auto object-cover rounded-md mb-2">
             <p class="text-sm font-semibold text-[var(--brand-brown)]">Confidentiel</p>
@@ -364,7 +359,7 @@
             <p class="text-sm font-semibold text-[var(--brand-brown)]">Icon Life</p>
           </div>
           <div class="card-service card-tilt bg-white p-4 rounded-xl shadow-lg border border-gray-100 transform hover:scale-105 transition duration-300">
-            <img src="images/Couv_GlamMag.jpg" loading="lazy" decoding="async" alt="Couverture du magazine Bio Mag." class="w-full h-auto object-cover rounded-md mb-2">
+            <img src="images/Couv_GlamMag.jpg" loading="lazy" decoding="async" alt="Couverture du magazine Glam Mag." class="w-full h-auto object-cover rounded-md mb-2">
             <p class="text-sm font-semibold text-[var(--brand-brown)]">Bio Mag</p>
           </div>
           <div class="card-service card-tilt bg-white p-4 rounded-xl shadow-lg border border-gray-100 transform hover:scale-105 transition duration-300">
@@ -377,7 +372,7 @@
           </div>
         </div>
 
-        <p class="text-lg text-gray-500 mt-12">Et bien d'autres : Public, Star Glam, Aujourd'hui Femme, Notre Vie, Paris Hebdo, Gossip, Vérité...</p>
+        <p class="text-lg text-gray-500 mt-12 text-center">Et bien d'autres : Bio Mag, Public, Star Glam, Aujourd'hui Femme, Notre Vie, Paris Hebdo, Gossip, Vérité…</p>
       </div>
     </div>
   </section>
@@ -385,30 +380,33 @@
   <!-- CONTACT -->
   <section id="contact" class="py-24 bg-[#e0d6cd] bg-opacity-70 reveal">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-5xl font-extrabold text-[var(--brand-brown)] mb-6 leading-tight">Prêt à renforcer <br><span class="text-[var(--brand-gold)]">votre image et vos supports ?</span></h2>
+      <h2 class="text-5xl font-extrabold text-[var(--brand-brown)] mb-6 leading-tight">
+        Parlons de votre projet <br><span class="text-[var(--brand-gold)]">et de vos priorités.</span>
+      </h2>
       <p class="text-xl text-gray-700 mb-12 max-w-2xl mx-auto leading-relaxed">
-        Décrivez votre besoin (contenus, design, supports). Nous revenons vers vous rapidement avec une proposition claire.
+        Dites-nous ce dont vous avez besoin : contenus, design, supports, digital.
+        Nous vous répondons avec une proposition simple, adaptée à une PME.
       </p>
 
       <div class="bg-white p-10 rounded-3xl shadow-2xl border-t-8 border-[var(--brand-gold)] max-w-xl mx-auto">
         <form action="https://formspree.io/f/mrbolqvp" method="POST" class="contact-form">
           <div class="mb-5">
             <input type="text" name="name" placeholder="Votre nom complet ou nom d'entreprise" required
-              class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-[var(--brand-gold)] focus:border-[var(--brand-gold)] transition duration-150 text-lg">
+                   class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-[var(--brand-gold)] focus:border-[var(--brand-gold)] transition duration-150 text-lg">
           </div>
 
           <div class="mb-5">
             <input type="email" name="email" placeholder="Votre adresse email professionnelle" required
-              class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-[var(--brand-gold)] focus:border-[var(--brand-gold)] transition duration-150 text-lg">
+                   class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-[var(--brand-gold)] focus:border-[var(--brand-gold)] transition duration-150 text-lg">
           </div>
 
           <div class="mb-7">
-            <textarea name="message" rows="5" placeholder="Décrivez votre projet (objectif, délais, supports attendus)..." required
-              class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-[var(--brand-gold)] focus:border-[var(--brand-gold)] transition duration-150 text-lg"></textarea>
+            <textarea name="message" rows="5" placeholder="Décrivez votre besoin (contexte, délais, supports souhaités)…" required
+                      class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-[var(--brand-gold)] focus:border-[var(--brand-gold)] transition duration-150 text-lg"></textarea>
           </div>
 
           <button type="submit"
-            class="w-full px-8 py-4 text-xl font-bold text-white bg-[var(--brand-brown)] rounded-full hover:bg-[#332015] transition duration-300 ease-in-out shadow-lg transform active:scale-95">
+                  class="w-full px-8 py-4 text-xl font-bold text-white bg-[var(--brand-brown)] rounded-full hover:bg-[#332015] transition duration-300 ease-in-out shadow-lg transform active:scale-95">
             Envoyer ma demande
           </button>
 
@@ -420,7 +418,9 @@
 
       <div class="mt-16 text-center">
         <p class="text-2xl font-bold text-[var(--brand-brown)]">Contact direct :</p>
-        <a href="mailto:contact@dckagency.com" class="text-2xl text-[var(--brand-gold)] hover:underline block mt-4"><span class="font-mono">contact@dckagency.com</span></a>
+        <a href="mailto:contact@dckagency.com" class="text-2xl text-[var(--brand-gold)] hover:underline block mt-4">
+          <span class="font-mono">contact@dckagency.com</span>
+        </a>
       </div>
     </div>
   </section>
@@ -429,7 +429,7 @@
   <footer class="bg-[var(--brand-brown)] text-white py-8">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
       <p>&copy; 2019 DCK Agency. Tous droits réservés.</p>
-      <p class="mt-2 text-gray-300">Clarté, cohérence, impact.</p>
+      <p class="mt-2 text-gray-300">Marketing • Communication • Création.</p>
     </div>
   </footer>
 
@@ -453,17 +453,20 @@
     function onScroll(){
       const y=window.scrollY||document.documentElement.scrollTop;
       if(y>4) nav.classList.add('shadow-md'); else nav.classList.remove('shadow-md');
+
       const h=document.documentElement.scrollHeight - window.innerHeight;
       const p=Math.max(0, Math.min(1, y/h));
       bar.style.width=(p*100)+'%';
+
       const hue=30 + Math.round(p*12);
       root.style.setProperty('--scroll-hue', hue);
+
       if(heroImg) heroImg.style.transform = `translateY(${p*12}px) rotate(-3deg)`;
     }
     onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
 
     // Lien actif selon section + activation immédiate au clic
-    const sections=['expertise','services','projects','contact'].map(id=>document.getElementById(id)).filter(Boolean);
+    const sections=['expertise','services','portfolio','contact'].map(id=>document.getElementById(id)).filter(Boolean);
     const links=[...document.querySelectorAll('.nav-link')];
     const linksContainer=document.querySelector('.nav-links');
 
@@ -504,7 +507,7 @@
     window.addEventListener('scroll',()=> toTop.classList.toggle('hidden', window.scrollY<400));
     toTop.addEventListener('click',()=> window.scrollTo({top:0, behavior:'smooth'}));
 
-    // Formspree message
+    // Formspree
     const form = document.querySelector('.contact-form');
     const successMsg = document.getElementById('form-success');
 
@@ -519,4 +522,12 @@
       });
 
       if (response.ok) {
-        form.r
+        form.reset();
+        successMsg.classList.remove('hidden');
+      } else {
+        alert("Désolé, l'envoi a échoué. Vous pouvez nous écrire à contact@dckagency.com.");
+      }
+    });
+  </script>
+</body>
+</html>
