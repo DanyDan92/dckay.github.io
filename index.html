@@ -113,9 +113,15 @@
 
           <a href="#contact" class="px-5 py-2.5 bg-[var(--brand-gold)] text-white rounded-full font-semibold shadow-md transition-transform duration-300 hover:-translate-y-0.5 active:translate-y-0 hover:bg-[#a5780a]">Contact</a>
 
-          <div class="hidden lg:flex items-center gap-2">
-            <span class="px-3 py-1 rounded-full bg-[var(--brand-gold)] text-white font-semibold text-sm">FR</span>
-            <a href="en/" class="px-3 py-1 rounded-full border border-[var(--brand-gold)] text-[var(--brand-gold)] hover:bg-[#fff8ea] text-sm">EN</a>
+          <div class="hidden lg:flex items-center gap-3">
+            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--brand-gold)] text-white font-semibold text-sm">
+              <img src="images/france-flag-png-large.png" alt="Français" class="h-4 w-auto rounded-sm object-cover">
+              <span>FR</span>
+            </span>
+            <a href="en/" class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[var(--brand-gold)] text-[var(--brand-gold)] hover:bg-[#fff8ea] text-sm">
+              <img src="images/united-kingdom-flag-png-large.png" alt="English" class="h-4 w-auto rounded-sm object-cover">
+              <span>EN</span>
+            </a>
           </div>
         </div>
 
@@ -133,9 +139,15 @@
         <a href="#services" class="mobile-link">Nos services</a>
         <a href="#portfolio" class="mobile-link">Sélection de projets</a>
         <a href="#contact" class="mobile-cta">Contact</a>
-        <div class="flex items-center gap-2 pt-2 border-t border-neutral-100">
-          <span class="px-3 py-1 rounded-full bg-[var(--brand-gold)] text-white font-semibold text-sm">FR</span>
-          <a href="en/" class="px-3 py-1 rounded-full border border-[var(--brand-gold)] text-[var(--brand-gold)] text-sm">EN</a>
+        <div class="flex items-center gap-3 pt-2 border-t border-neutral-100">
+          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--brand-gold)] text-white font-semibold text-sm">
+            <img src="images/france-flag-png-large.png" alt="Français" class="h-4 w-auto rounded-sm object-cover">
+            <span>FR</span>
+          </span>
+          <a href="en/" class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[var(--brand-gold)] text-[var(--brand-gold)] text-sm">
+            <img src="images/united-kingdom-flag-png-large.png" alt="English" class="h-4 w-auto rounded-sm object-cover">
+            <span>EN</span>
+          </a>
         </div>
       </div>
     </div>
@@ -452,11 +464,20 @@
         </form>
       </div>
 
-      <div class="mt-16 text-center">
+      <div class="mt-16 flex flex-col items-center gap-6">
         <p class="text-2xl font-bold text-[var(--brand-brown)]">Contact direct :</p>
-        <a href="mailto:contact@dckagency.com" class="text-2xl text-[var(--brand-gold)] hover:underline block mt-4">
-          <span class="font-mono">contact@dckagency.com</span>
-        </a>
+        <div class="flex flex-wrap justify-center gap-5">
+          <a href="https://wa.me/971581372641" target="_blank" rel="noopener noreferrer"
+             class="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-[#25D366] text-white font-semibold shadow-md hover:shadow-lg transition">
+            <img src="images/Whatsapp-icon.png" alt="WhatsApp" class="h-6 w-6 object-contain">
+            <span>WhatsApp</span>
+          </a>
+          <a href="mailto:contact@dckay.com"
+             class="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-white text-[var(--brand-brown)] font-semibold border border-[var(--brand-gold)] shadow-md hover:bg-[#fff8ea] transition">
+            <img src="images/email-icon.png" alt="Email" class="h-6 w-6 object-contain">
+            <span>contact@dckay.com</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
